@@ -15,7 +15,7 @@ def ridge(data):
     # 添加偏置列
     x_train = np.column_stack((np.ones(len(x_train)), x_train))
 
-    alpha = 0.5
+    alpha = 0.1
     # 计算正则化系数矩阵
     l = alpha * np.eye(x_train.shape[1])
 
