@@ -21,7 +21,7 @@ def ridge(data):
 
     weight = np.linalg.solve(np.dot(x_train.T, x_train) + l, np.dot(x_train.T, y_train))
     data_1=data.reshape(-1,1)
-    return data_1@weight
+    return data_1*weight
 
 
 def lasso(data):
@@ -46,7 +46,7 @@ def lasso(data):
         # 更新参数
         theta -= alpha * diff
     data_1=data.reshape(-1,1)
-    return data_1@theta
+    return data_1*theta
 
 
 def read_data(path='./data/exp02/'):
