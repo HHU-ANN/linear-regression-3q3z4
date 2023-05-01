@@ -10,7 +10,7 @@ except ImportError as e:
 
 
 def ridge(data):
-    x_train, y_train = read_data(path='H:/linear-regression-3q3z4/data/exp02/')
+    x_train, y_train = read_data()
 
     # 添加偏置列
     x_train = np.column_stack((np.ones(len(x_train)), x_train))
@@ -25,7 +25,7 @@ def ridge(data):
 
 
 def lasso(data):
-    x,y=read_data(path='H:/linear-regression-3q3z4/data/exp02/')
+    x,y=read_data()
     m, n = x.shape
     max_iter=1000
     lamda=0.1
