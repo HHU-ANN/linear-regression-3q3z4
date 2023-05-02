@@ -26,9 +26,9 @@ def ridge(data):
 def lasso(data):
     x,y=read_data()
     m, n = x.shape
-    max_iter=1000
+    max_iter=10000
     lamda=0.1
-    alpha=0.01
+    alpha=1e-9
     theta = np.zeros(n)
 
     for i in range(max_iter):
