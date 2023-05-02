@@ -20,7 +20,7 @@ def ridge(data):
     l = alpha * np.eye(x_train.shape[1])
 
     weight = np.linalg.solve(np.dot(x_train.T, x_train) + l, np.dot(x_train.T, y_train))
-    return data.all()*weight.all()
+    return np.sum(data.all()*weight.all())
 
 
 def lasso(data):
@@ -44,7 +44,7 @@ def lasso(data):
                 diff[j] = np.random.uniform(-lamda / (2 * m), lamda / (2 * m))
         # 更新参数
         theta -= alpha * diff
-    return data.all()*theta.all()
+    return np.sum(data.all()*theta.all())
 
 
 def read_data(path='./data/exp02/'):
