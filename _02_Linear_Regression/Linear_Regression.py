@@ -10,17 +10,17 @@ except ImportError as e:
 
 
 def ridge(data):
-    x_train, y_train = read_data()
+    x_train, y_train = read_data(path='H:/linear-regression-3q3z4/data/exp02/')
 
     # 添加偏置列
-    x_train = np.column_stack((np.ones(len(x_train)), x_train))
+    x_train = np.column_stack((np.ones(len(x_train)), x_train))[:,1:]
 
-    alpha = 0.1
+    alpha = 1e-9
     # 计算正则化系数矩阵
     l = alpha * np.eye(x_train.shape[1])
 
     weight = np.linalg.solve(np.dot(x_train.T, x_train) + l, np.dot(x_train.T, y_train))
-    return np.sum(data.all()*weight.all())
+    return np.sum(data*weight)
 
 
 def lasso(data):
@@ -44,7 +44,7 @@ def lasso(data):
                 diff[j] = np.random.uniform(-lamda / (2 * m), lamda / (2 * m))
         # 更新参数
         theta -= alpha * diff
-    return np.sum(data.all()*theta.all())
+    return np.sum(data*theta)
 
 
 def read_data(path='./data/exp02/'):
